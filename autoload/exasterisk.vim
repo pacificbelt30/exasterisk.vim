@@ -1,10 +1,11 @@
 let s:escape_char = ["*","/","\""]
+" 選択部分の文字列を取得
 function! exasterisk#get_selection_char() range
   let [line_start, column_start] = getpos("'<")[1:2]
   let [line_end, column_end] = getpos("'>")[1:2]
   let lines = getline(line_start, line_end)
   if len(lines) == 0
-    echo 'dame'
+    echo '選択箇所なし'
     return ''
   endif
   let lines[-1] = lines[-1][: column_end - 2]
@@ -13,12 +14,13 @@ function! exasterisk#get_selection_char() range
   return join(lines, "\n")
 endfunction
 
+" 選択箇所を検索 and レジスタに登録
 function! exasterisk#search_selection_char() range
   let [line_start, column_start] = getpos("'<")[1:2]
   let [line_end, column_end] = getpos("'>")[1:2]
   let lines = getline(line_start, line_end)
   if len(lines) == 0
-    echo 'dame'
+    echo '選択箇所なし'
     return ''
   endif
   let lines[-1] = lines[-1][: column_end - 2]
