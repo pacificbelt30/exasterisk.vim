@@ -13,8 +13,8 @@ you are using something else, I don't know.
 # Usage
 | Command | Description |
 | --- | --- |
-| :EXA | A command to retrieve and output the string of the selected area in visual mode. |
-| :EXAA | Command to retrieve the string of the selected location in visual mode and store it in the final search character register "\\"".  Default is `*` |
+| `:EXA` | A command to retrieve and output the string of the selected area in visual mode. |
+| `:EXAA` | Command to retrieve the string of the selected location in visual mode and store it in the final search character register `\\"`.  Default is `*` |
 
 # Copyright
 see LICENCE
