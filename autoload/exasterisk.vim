@@ -8,7 +8,7 @@ function! exasterisk#get_selection_char() range
     echo '選択箇所なし'
     return ''
   endif
-  let lines[-1] = lines[-1][: column_end - 2]
+  let lines[-1] = lines[-1][: column_end - 1]
   let lines[0] = lines[0][column_start - 1:]
   echo join(lines, "\n")
   return join(lines, "\n")
@@ -23,7 +23,7 @@ function! exasterisk#search_selection_char() range
     echo '選択箇所なし'
     return ''
   endif
-  let lines[-1] = lines[-1][: column_end - 2]
+  let lines[-1] = lines[-1][: column_end - 1]
   let lines[0] = lines[0][column_start - 1:]
   echo join(lines, "\n")
   "execute '/'.join(lines, "\n").''
@@ -32,7 +32,11 @@ function! exasterisk#search_selection_char() range
     let l:search_char = substitute(search_char,"\\".s,"\\\\".s,"g")
   endfor
   echo l:search_char
-  execute '/'.l:search_char
-  let @/ = l:search_char
+  try
+    execute '/'.l:search_char
+    let @/ = l:search_char
+  catch
+    echo l:search_char."が見つかりませんでした"
+  endtry
   ":call search('/'.join(lines,"\\n"))
 endfunction
