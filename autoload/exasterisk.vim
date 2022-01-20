@@ -1,4 +1,5 @@
-let s:escape_char = ["*","/","\""]
+"特殊文字一覧 ^ $ . * [ ] / ~ \
+let s:escape_char = ["*","/","$",".","[","]","~","\""]
 " 選択部分の文字列を取得
 function! exasterisk#get_selection_char() range
   let [line_start, column_start] = getpos("'<")[1:2]
@@ -15,6 +16,7 @@ function! exasterisk#get_selection_char() range
 endfunction
 
 " 選択箇所を検索 and レジスタに登録
+" searchposとかいう関数があった
 function! exasterisk#search_selection_char() range
   let [line_start, column_start] = getpos("'<")[1:2]
   let [line_end, column_end] = getpos("'>")[1:2]
@@ -27,14 +29,25 @@ function! exasterisk#search_selection_char() range
   let lines[0] = lines[0][column_start - 1:]
   echo join(lines, "\n")
   "execute '/'.join(lines, "\n").''
+
+  " 検索文字列を生成(特殊文字をエスケープする)
   let l:search_char = join(lines,"\\n")
-  for s in s:escape_char
-    let l:search_char = substitute(search_char,"\\".s,"\\\\".s,"g")
+  let l:count = 0
+  for l in lines
+    for s in s:escape_char
+      let lines[l:count] = substitute(lines[l:count],"\\".s,"\\\\".s,"g") " 配列の要素でも代入するときはletを使う
+    endfor
+    let l:count = l:count + 1
   endfor
-  echo l:search_char
+  let l:search_char = join(lines,"\\n")
+  "echo l:search_char
+
+  " 検索実行
   try
-    execute '/'.l:search_char
+    "execute "normal" . '/'.l:search_char
     let @/ = l:search_char
+    "normal n
+    "execute 'set hlsearch' " 光らない
   catch
     echo l:search_char."が見つかりませんでした"
   endtry

@@ -1,0 +1,16 @@
+!_TAG_FILE_ENCODING	utf-8	//
+:EXA	exasterisk.jax	/*:EXA*
+:EXAA	exasterisk.jax	/*:EXAA*
+exasterisk	exasterisk.jax	/*exasterisk*
+exasterisk#get_selection_char()	exasterisk.jax	/*exasterisk#get_selection_char()*
+exasterisk#search_selection_char()	exasterisk.jax	/*exasterisk#search_selection_char()*
+exasterisk-changelog	exasterisk.jax	/*exasterisk-changelog*
+exasterisk-commands	exasterisk.jax	/*exasterisk-commands*
+exasterisk-contents	exasterisk.jax	/*exasterisk-contents*
+exasterisk-functions	exasterisk.jax	/*exasterisk-functions*
+exasterisk-interface	exasterisk.jax	/*exasterisk-interface*
+exasterisk-introduction	exasterisk.jax	/*exasterisk-introduction*
+exasterisk-key-mappings	exasterisk.jax	/*exasterisk-key-mappings*
+exasterisk-todo	exasterisk.jax	/*exasterisk-todo*
+exasterisk-usage	exasterisk.jax	/*exasterisk-usage*
+exasterisk.txt	exasterisk.jax	/*exasterisk.txt*

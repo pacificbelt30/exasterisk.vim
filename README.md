@@ -6,7 +6,7 @@ I want to be able to use asterisks in normal mode in visual mode.
 # installation
 If you are using vim-plug:
 ```
-Plug "pacificbelt30/exasterisk.vim"
+Plug 'pacificbelt30/exasterisk.vim'
 ```
 you are using something else, I don't know.
 
